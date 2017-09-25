@@ -16,9 +16,9 @@ $ open https://git-scm.com
 ## Tutorial
 
 ```ShellSession
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export GITHUB_EMAIL=<адрес_почтового_ящика>
-$ alias edit=<nano|vi|vim|subl>
+$ export GITHUB_USERNAME=<babyrage>
+$ export GITHUB_EMAIL=<kapotyuk0901@yandex.ru>
+$ alias edit=subl
 ```
 
 ```ShellSession

@@ -16,24 +16,24 @@ $ open https://git-scm.com
 ## Tutorial
 
 ```ShellSession
-$ export GITHUB_USERNAME=<babyrage666>
-$ export GITHUB_EMAIL=<kapotyuk0901@yandex.ru>
-$ alias edit=subl
+$ export GITHUB_USERNAME=<babyrage666> # Устанавливаем значение переменной окружения GITHUB_USERNAME
+$ export GITHUB_EMAIL=<kapotyuk0901@yandex.ru> # Устанавливаем значение переменной окружения
+$ alias edit=subl # Выбираем текстовый редактор, в котором будем работать
 ```
 
 ```ShellSession
-$ mkdir lab03 && cd lab03
-$ git init
-$ git config --global user.name ${GITHUB_USERNAME}
-$ git config --global user.email ${GITHUB_EMAIL}
-$ git config -e --global
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03
-$ git pull origin master
-$ touch README.md
-$ git status
-$ git add README.md
-$ git commit -m"added README.md"
-$ git push origin master
+$ mkdir lab03 && cd lab03 # sozdnie i pererhod v direktoriyu
+$ git init # initializaciya hranilishya
+$ git config --global user.name ${GITHUB_USERNAME} # declaraciya username
+$ git config --global user.email ${GITHUB_EMAIL} # declaraciya e-mail
+$ git config -e --global # edit
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03 
+$ git pull origin master # obyedinenie repozitoriya
+$ touch README.md # sozdanie file
+$ git status # status
+$ git add README.md # add file
+$ git commit -m"added README.md" # commitim
+$ git push origin master # psuhim
 ```
 
 Добавить на сервисе **GitHub** в репозитории **lab03** файл **.gitignore**
@@ -46,12 +46,12 @@ $ git push origin master
 ```
 
 ```ShellSession
-$ git pull origin master
-$ git log
+$ git pull origin master # obyedinenie repozitoriev
+$ git log # check loga
 ```
 
 ```ShellSession
-$ mkdir sources
+$ mkdir sources # sozdanie directorii
 $ mkdir include
 $ mkdir examples
 $ cat > sources/print.cpp <<EOF
@@ -101,14 +101,14 @@ EOF
 ```
 
 ```ShellSession
-$ edit README.md
+$ edit README.md # redactirovat'
 ```
 
 ```ShellSession
-$ git status
-$ git add .
-$ git commit -m"added sources"
-$ git push origin master
+$ git status # pokaz sostoyaniya dereva
+$ git add . # dobavit' vse
+$ git commit -m"added sources" # commit
+$ git push origin master # push
 ```
 
 ## Report

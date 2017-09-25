@@ -16,7 +16,7 @@ $ open https://git-scm.com
 ## Tutorial
 
 ```ShellSession
-$ export GITHUB_USERNAME=<babyrage>
+$ export GITHUB_USERNAME=<babyrage666>
 $ export GITHUB_EMAIL=<kapotyuk0901@yandex.ru>
 $ alias edit=subl
 ```

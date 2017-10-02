@@ -1,122 +1,103 @@
 [![Build Status](https://travis-ci.org/babyrage666/lab05.svg?branch=master)](https://travis-ci.org/babyrage666/lab05)
-## Laboratory work III
+## Laboratory work V
 
-Данная лабораторная работа посвещена изучению систем контроля версий на примере **Git**.
+Данная лабораторная работа посвещена изучению систем непрерывной интеграции на примере сервиса **Travis CI**
 
-```bash
-$ open https://git-scm.com
+```ShellSession
+$ open https://travis-ci.org
 ```
 
 ## Tasks
 
-- [X] 1. Создать публичный репозиторий с названием **lab03** и с лиценцией **MIT**
-- [X] 2. Ознакомиться со ссылками учебного материала
-- [X] 3. Выполнить инструкцию учебного материала
-- [X] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
+- [X] 1. Авторизоваться на сервисе **Travis CI** с использованием **GitHub** аккаунта
+- [X] 2. Создать публичный репозиторий с названием **lab05** на сервисе **GitHub**
+- [X] 3. Ознакомиться со ссылками учебного материала
+- [X] 4. Включить интеграцию сервиса **Travis CI** с созданным репозиторием
+- [X] 5. Получить токен для **Travis CLI** с правами **repo** и **user**
+- [X] 6. Получить фрагмент вставки значка сервиса **Travis CI** в формате **Markdown**
+- [X] 7. Установить [**Travis CLI**](https://github.com/travis-ci/travis.rb#installation)
+- [X] 8. Выполнить инструкцию учебного материала
+- [X] 9. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
 ```ShellSession
-$ export GITHUB_USERNAME=<babyrage666> # Устанавливаем значение переменной окружения GITHUB_USERNAME
-$ export GITHUB_EMAIL=<kapotyuk0901@yandex.ru> # Устанавливаем значение переменной окружения
-$ alias edit=subl # Выбираем текстовый редактор, в котором будем работать
+$ export GITHUB_USERNAME=babyrage666
+$ export GITHUB_TOKEN=4f3bf61b645bb4e0cbbbe8c10a6436bd24d9282c
 ```
 
 ```ShellSession
-$ mkdir lab03 && cd lab03 # sozdnie i pererhod v direktoriyu
-$ git init # initializaciya hranilishya
-$ git config --global user.name ${GITHUB_USERNAME} # declaraciya username
-$ git config --global user.email ${GITHUB_EMAIL} # declaraciya e-mail
-$ git config -e --global # edit
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03 
-$ git pull origin master # obyedinenie repozitoriya
-$ touch README.md # sozdanie file
-$ git status # status
-$ git add README.md # add file
-$ git commit -m"added README.md" # commitim
-$ git push origin master # psuhim
-```
-
-Добавить на сервисе **GitHub** в репозитории **lab03** файл **.gitignore**
-со следующем содержимом:
-
-```ShellSession
-*build*/
-*install*/
-*.swp
+$ git clone https://github.com/${GITHUB_USERNAME}/lab04 lab05
+$ cd lab05
+$ git remote remove origin
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab05
 ```
 
 ```ShellSession
-$ git pull origin master # obyedinenie repozitoriev
-$ git log # check loga
-```
-
-```ShellSession
-$ mkdir sources # sozdanie directorii
-$ mkdir include
-$ mkdir examples
-$ cat > sources/print.cpp <<EOF
-#include <print.hpp>
-
-void print(const std::string& text, std::ostream& out) {
-  out << text;
-}
-
-void print(const std::string& text, std::ofstream& out) {
-  out << text;
-}
+$ cat > .travis.yml <<EOF
+language: cpp
 EOF
 ```
 
 ```ShellSession
-$ cat > include/print.hpp <<EOF
-#include <string>
-#include <fstream>
-#include <iostream>
+$ cat >> .travis.yml <<EOF
 
-void print(const std::string& text, std::ostream& out = std::cout);
-void print(const std::string& text, std::ofstream& out);
+script:
+- cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+- cmake --build _build
+- cmake --build _build --target install
 EOF
 ```
 
 ```ShellSession
-$ cat > examples/example1.cpp <<EOF
-#include <print.hpp>
+$ cat >> .travis.yml <<EOF
 
-int main(int argc, char** argv) {
-  print("hello");
-}
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
 EOF
 ```
 
 ```ShellSession
-$ cat > examples/example2.cpp <<EOF
-#include <fstream>
-#include <print.hpp>
-
-int main(int argc, char** argv) {
-  std::ofstream file("log.txt");
-  print(std::string("hello"), file);
-}
-EOF
+$ travis login --github-token ${GITHUB_TOKEN}
 ```
 
 ```ShellSession
-$ edit README.md # redactirovat'
+$ travis lint
 ```
 
 ```ShellSession
-$ git status # pokaz sostoyaniya dereva
-$ git add . # dobavit' vse
-$ git commit -m"added sources" # commit
-$ git push origin master # push
+$ ex -sc '1i|<фрагмент_вставки_значка>' -cx README.md
+```
+
+```ShellSession
+$ git add .travis.yml
+$ git add README.md
+$ git commit -m"added CI"
+$ git push origin master
+```
+
+```ShellSession
+$ travis lint
+$ travis accounts
+$ travis sync
+$ travis repos
+$ travis enable
+$ travis whatsup
+$ travis branches
+$ travis history
+$ travis show
 ```
 
 ## Report
 
 ```ShellSession
 $ cd ~/workspace/labs/
-$ export LAB_NUMBER=03
+$ export LAB_NUMBER=05
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
 $ mkdir reports/lab${LAB_NUMBER}
 $ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
@@ -127,10 +108,9 @@ $ gistup -m "lab${LAB_NUMBER}"
 
 ## Links
 
-- [GitHub](https://github.com)
-- [Bitbucket](https://bitbucket.org)
-- [Gitlab](https://about.gitlab.com)
-- [LearnGitBranching](http://learngitbranching.js.org/)
+- [Travis Client](https://github.com/travis-ci/travis.rb)
+- [AppVeyour](https://www.appveyor.com/)
+- [GitLab CI](https://about.gitlab.com/gitlab-ci/)
 
 ```
 Copyright (c) 2017 Братья Вершинины

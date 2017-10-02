@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/babyrage666/lab05.svg?branch=master)](https://travis-ci.org/babyrage666/lab05)
 ## Laboratory work III
 
 Данная лабораторная работа посвещена изучению систем контроля версий на примере **Git**.

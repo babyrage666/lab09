@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/babyrage666/lab07.svg?branch=master)](https://travis-ci.org/babyrage666/lab07)
+[![Build Status](https://travis-ci.org/babyrage666/lab08.svg?branch=master)](https://travis-ci.org/babyrage666/lab08)
 ## Laboratory work VII
 
 Данная лабораторная работа посвещена изучению систем документирования исходного кода на примере **Doxygen**
@@ -9,7 +9,7 @@ $ open https://www.stack.nl/~dimitri/doxygen/manual/index.html
 
 ## Tasks
 
-- [x] 1. Создать публичный репозиторий с названием **lab07** на сервисе **GitHub**
+- [x] 1. Создать публичный репозиторий с названием **lab08** на сервисе **GitHub**
 - [x] 2. Выполнить инструкцию учебного материала
 - [x] 3. Ознакомиться со ссылками учебного материала
 - [x] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
@@ -24,10 +24,10 @@ $ alias edit=subl
 
 Подготовка к выполнению **Лабораторной работы №7**.
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab06 lab07
-$ cd lab07
+$ git clone https://github.com/${GITHUB_USERNAME}/lab06 lab08
+$ cd lab08
 $ git remote remove origin
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab07
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab08
 ```
 
 Cоздаем директорию **docs** и загуржаем в нее файл конфигураций **doxygen.conf**.
@@ -55,7 +55,7 @@ $ sed --in-place 's/\(OUTPUT_DIRECTORY.*=\).*$/\1 docs/g' docs/doxygen.conf
 
 Редактируем файл **README.md**
 ```ShellSession
-$ sed --in-place 's/lab06/lab07/g' README.md
+$ sed --in-place 's/lab06/lab08/g' README.md
 ```
 
 Документируем **print**.
@@ -94,7 +94,7 @@ $ git checkout master # Переключаемся на ветку master
 Добавляем скриншот HTML-страницы **doxygen** в GoogleDrive и разрешаем доступ для rusdevops@gmail.com.
 ```ShellSession
 $ mkdir artifacts && cd artifacts
-$ open https://${GITHUB_USERNAME}.github.io/lab07/print_8hpp.html 
+$ open https://${GITHUB_USERNAME}.github.io/lab08/print_8hpp.html 
 $ sleep 5s && gnome-screenshot --file artifacts/screenshot.png
 $ gdrive upload screenshot.png
 $ SCREENSHOT_ID=`gdrive list | grep screenshot | awk '{ print $1; }'`

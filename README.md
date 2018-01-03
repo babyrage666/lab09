@@ -89,12 +89,12 @@ $ cmake --build _build --target test
 $ sed -i '' 's/lab05/lab06/g' README.md                                             
 $ sed -i '' 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml 
 $ sed -i '' '/cmake --build _build --target install/a\
-- cmake --build _build --target test
+- cmake --build _build --target test -- ARGS=--verbose
 ' .travis.yml
 ```
 Проверяем файл **.travis.yml** на ошибки.
 ```ShellSession
-$ travis lint 				# display warnings for a .travis.yml
+$ travis lint 	# display warnings for a .travis.yml
 Warnings for .travis.yml:
 [x] value for addons section is empty, dropping
 [x] in addons section: unexpected key apt, dropping

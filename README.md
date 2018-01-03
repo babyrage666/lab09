@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/babyrage666/lab06.svg?branch=master)](https://travis-ci.org/babyrage666/lab06)
+[![Build Status](https://travis-ci.org/babyrage666/lab07.svg?branch=master)](https://travis-ci.org/babyrage666/lab07)
 ## Laboratory work VI
 
 Данная лабораторная работа посвещена изучению фреймворков для тестирования на примере **Catch**
@@ -9,7 +9,7 @@ $ open https://github.com/philsquared/Catch
 
 ## Tasks
 
-- [x] 1. Создать публичный репозиторий с названием **lab06** на сервисе **GitHub**
+- [x] 1. Создать публичный репозиторий с названием **lab07** на сервисе **GitHub**
 - [x] 2. Выполнить инструкцию учебного материала
 - [x] 3. Ознакомиться со ссылками учебного материала
 - [x] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
@@ -23,10 +23,10 @@ $ alias gsed = sed
 
 Подготовка к выполнению **Лабораторной работы №6**.
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab05 lab06
-$ cd lab06 
+$ git clone https://github.com/${GITHUB_USERNAME}/lab05 lab07
+$ cd lab07 
 $ git remote remove origin 
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06         
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab07         
 ```
 Скачиваем файл **catch.hpp**, вносим в него изменения и помещаем в каталог **test**.
 ```ShellSession
@@ -86,7 +86,7 @@ $ cmake --build _build --target test
 
 Обновляем данные в файлах **README.md** и **.travis.yml**.
 ```ShellSession
-$ sed -i '' 's/lab05/lab06/g' README.md                                             
+$ sed -i '' 's/lab05/lab07/g' README.md                                             
 $ sed -i '' 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml 
 $ sed -i '' '/cmake --build _build --target install/a\
 - cmake --build _build --target test -- ARGS=--verbose
